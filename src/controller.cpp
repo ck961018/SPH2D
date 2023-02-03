@@ -1,4 +1,4 @@
-#include "controler.h"
+#include "controller.h"
 #include "resource_manager.h"
 #include "point_renderer.h"
 #include "triangle_renderer.h"
@@ -16,12 +16,12 @@ std::ofstream logFile;
 std::string method = "zhu_bridson";
 double kernelRadius = 0.075;
 
-Controler::Controler(GLuint width, GLuint height)
-    : State(CONTROLER_ACTIVE), Keys(), Width(width), Height(height) {}
+Controller::Controller(GLuint width, GLuint height)
+    : State(CONTROLLER_ACTIVE), Keys(), Width(width), Height(height) {}
 
-Controler::~Controler() { delete Renderer; }
+Controller::~Controller() { delete Renderer; }
 
-void Controler::Init() {
+void Controller::Init() {
   // 加载着色器
   ResourceManager::LoadShader("shaders/sprite.vs", "shaders/sprite.fs", nullptr, "point");
   ResourceManager::LoadShader("shaders/sprite.vs", "shaders/sprite.fs", nullptr, "triangle");
@@ -37,7 +37,7 @@ void Controler::Init() {
   initExample1(solver, targetSpacing, numberOfFrames, fps);
 }
 
-void Controler::Update(GLfloat dt) {
+void Controller::Update(GLfloat dt) {
   if (frame.index == numberOfFrames) {
     return;
   }
@@ -53,9 +53,9 @@ void Controler::Update(GLfloat dt) {
   // }
 }
 
-void Controler::ProcessInput(GLfloat dt) {}
+void Controller::ProcessInput(GLfloat dt) {}
 
-void Controler::Render() {
+void Controller::Render() {
   auto tmp = solver->particleSystemData();
   std::vector<glm::vec2> particles;
   tmp->positions().forEach([&](const auto& p) { particles.push_back({p.x, p.y}); });

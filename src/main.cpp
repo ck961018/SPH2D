@@ -1,6 +1,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "controler.h"
+#include "controller.h"
 #include "resource_manager.h"
 
 #include <iostream>
@@ -14,7 +14,7 @@ const unsigned int SCREEN_WIDTH = 800;
 // The height of the screen
 const unsigned int SCREEN_HEIGHT = 600;
 
-Controler Sph2D(SCREEN_WIDTH, SCREEN_HEIGHT);
+Controller Sph2D(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 int main(int argc, char* argv[]) {
   glfwInit();
@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
   float deltaTime = 0.0f;
   float lastFrame = 0.0f;
 
-  Sph2D.State = CONTROLER_ACTIVE;
+  Sph2D.State = CONTROLLER_ACTIVE;
 
   while (!glfwWindowShouldClose(window)) {
     // calculate delta time
@@ -68,8 +68,6 @@ int main(int argc, char* argv[]) {
     // -----------------
     Sph2D.ProcessInput(deltaTime);
 
-    // update game state
-    // -----------------
     Sph2D.Update(deltaTime);
 
     // render

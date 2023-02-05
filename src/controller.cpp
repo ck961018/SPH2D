@@ -19,7 +19,10 @@ double kernelRadius = 0.075;
 Controller::Controller(GLuint width, GLuint height)
     : State(CONTROLLER_ACTIVE), Keys(), Width(width), Height(height) {}
 
-Controller::~Controller() { delete Renderer; }
+Controller::~Controller() {
+  delete Renderer;
+  delete Renderer2;
+}
 
 void Controller::Init() {
   // 加载着色器

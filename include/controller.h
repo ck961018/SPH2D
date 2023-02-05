@@ -1,5 +1,5 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
